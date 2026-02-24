@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dani's STORE - Sitio Oficial</title>
+    <style>
+        :root {
+            --primary-pink: #d63384; 
+            --accent-color: #fd7e14;
+            --bg-color: #fff5f8;
+            --text-color: #333;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: var(--bg-color); color: var(--text-color); scroll-behavior: smooth; }
+        
+        .wrapper { max-width: 1100px; margin: 20px auto; background: white; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 20px; border-bottom: 4px solid var(--primary-pink); background: #fff;
+            flex-wrap: wrap;
+        }
+        .header-logo { width: 120px; height: 120px; object-fit: contain; }
+        .cintillo-title { font-size: 26px; font-weight: bold; text-transform: uppercase; color: var(--primary-pink); flex: 1; text-align: center; }
+
+        .hero-section { display: flex; border-bottom: 1px solid #eee; flex-wrap: wrap; }
+        .side-nav { width: 25%; padding: 20px; display: flex; flex-direction: column; gap: 15px; background: #fafafa; box-sizing: border-box; }
+        
+        .main-photo { 
+            width: 50%; display: flex; flex-direction: column; align-items: center; 
+            justify-content: center; padding: 20px; border-left: 1px solid #eee; border-right: 1px solid #eee; box-sizing: border-box;
+        }
+        .main-photo img { max-width: 100%; height: auto; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+        .btn { 
+            background: white; border: 2px solid var(--primary-pink); padding: 12px 15px; 
+            text-align: center; text-decoration: none; color: var(--primary-pink); 
+            border-radius: 50px; font-weight: bold; transition: 0.3s; font-size: 0.9em;
+        }
+        .btn:hover { background: var(--primary-pink); color: white; transform: scale(1.05); }
+
+        /* Estilo unificado para secciones */
+        section { padding: 40px 20px; border-bottom: 1px solid #eee; display: none; animation: fadeIn 0.5s;}
+        section:target { display: block; } 
+        #inicio { display: block; } 
+        section:target ~ #inicio { display: none; } 
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .content-card { 
+            background: #fff; 
+            padding: 30px; 
+            border-radius: 8px; 
+            border: 1px solid #f0f0f0;
+            min-height: 400px; /* Esto hace que todas tengan un tamaño mínimo similar */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            
+        }
+
+        h2 { color: var(--primary-pink); border-left: 5px solid var(--primary-pink); padding-left: 10px; margin-bottom: 25px; }
+        
+        .back-btn { 
+            display: inline-block; margin-top: 25px; color: var(--primary-pink); 
+            text-decoration: none; font-weight: bold; border: 1px solid var(--primary-pink); 
+            padding: 10px 20px; border-radius: 5px; transition: 0.3s;
+        }
+        .back-btn:hover { background: var(--primary-pink); color: white; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table, th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: var(--primary-pink); color: white; }
+
+        /* Grid de Productos */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 20px; }
+        .product-item { border: 1px solid #eee; padding: 10px; border-radius: 10px; text-align: center; }
+        .product-item img { width: 100%; height: 150px; object-fit: cover; border-radius: 5px; }
+
+        @media (max-width: 768px) {
+            .side-nav, .main-photo { width: 100%; border: none; }
+            .main-photo { order: 1; }
+            .side-nav { order: 2; }
+            .content-card { min-height: auto; } /* En móvil es mejor que se adapte al contenido */
+        }
+
+        footer { background: var(--primary-pink); color: white; text-align: center; padding: 20px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <img src="logo.png" alt="Logo Dani's Store" class="header-logo">
+        <div class="cintillo-title">Dani's Store</div>
+        <img src="logo.png" alt="Logo Dani's Store" class="header-logo">
+    </header>
+
+    <main id="inicio">
+        <div class="hero-section">
+            <nav class="side-nav">
+                <a href="#quienes" class="btn">¿Quiénes somos?</a>
+                <a href="#contacto" class="btn">Información de contacto</a>
+                <a href="#productos" class="btn">Lista de productos</a>
+                <a href="#servicios" class="btn">Servicios</a>
+            </nav>
+
+            <div class="main-photo">
+                 <img src="empresarial.jpeg" alt="Equipo Dani's Store">
+                <div style="text-align: center; margin-top: 15px;">
+                    <p><strong>Objetivo:</strong> Brindar a nuestros clientes de Macarapana la mejor calidad en productos con una atención personalizada y directa.</p>
+                </div>
+            </div>
+
+            <nav class="side-nav">
+                <a href="#procesos" class="btn">Actividades / Procesos</a>
+                <a href="#organigrama" class="btn">Organigrama</a>
+                <a href="#nomina" class="btn">Nómina</a>
+            </nav>
+        </div>
+    </main>
+
+    <section id="quienes">
+        <h2>¿Quiénes Somos?</h2>
+        <div class="content-card">
+            <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <p style="line-height: 1.6; font-size: 1.1em; color: #555;">
+                        <strong>Dani's STORE</strong> nació de la pasión de <strong>Daniela Marcano</strong> por la moda y el deseo de ofrecer algo diferente en la comunidad de <strong>Macarapana</strong>. Lo que comenzó como un sueño personal, se convirtió rápidamente en un punto de referencia para quienes buscan exclusividad y calidad sin salir de la zona.
+                    </p>
+                    <p style="line-height: 1.6; font-size: 1.1em; color: #555;">
+                        Hoy, somos un equipo unido que cree en el valor de la atención directa, asegurando que cada cliente no solo se lleve una prenda, sino una experiencia de compra personalizada y cercana.
+                    </p>
+                </div>
+            </div>
+
+            <hr style="border: 0; height: 1px; background: #eee; margin: 30px 0;">
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="background: #fffafa; padding: 20px; border-radius: 15px; border: 1px dashed var(--primary-pink);">
+                    <h3 style="color: var(--primary-pink); margin-top: 0;">🎯 Misión</h3>
+                    <p style="font-size: 0.95em;">Proveer a nuestra comunidad de piezas de moda exclusivas y accesorios de alta calidad, garantizando una atención humana y asesoría personalizada que resalte la belleza y estilo de cada cliente.</p>
+                </div>
+
+                <div style="background: #fffafa; padding: 20px; border-radius: 15px; border: 1px dashed var(--primary-pink);">
+                    <h3 style="color: var(--primary-pink); margin-top: 0;">🚀 Visión</h3>
+                    <p style="font-size: 0.95em;">Convertirnos en la tienda líder de moda en la región de Sucre, expandiendo nuestro catálogo digital y manteniendo siempre la esencia de confianza y cercanía que nos define desde Macarapana.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                <span style="background: var(--primary-pink); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8em; font-weight: bold;">#ModaLocal</span>
+                <span style="background: var(--primary-pink); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8em; font-weight: bold;">#CalidadGarantizada</span>
+                <span style="background: var(--primary-pink); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8em; font-weight: bold;">#DaniStoreStyle</span>
+            </div>
+        </div>
+        <a href="#inicio" class="back-btn">← Volver al Inicio</a>
+    </section>
+
+    <section id="contacto">
+        <h2>Información de Contacto</h2>
+        <div class="content-card">
+            <p><strong>📞 Teléfono:</strong> 0412-1222680</p>
+            <p><strong>📸 Instagram:</strong> <a href="https://instagram.com/DanisSTORE" target="_blank">@Dani's STORE</a></p>
+            <p><strong>📧 Correo:</strong> Flog1225@gmail.com</p>
+            <p><strong>📍 Dirección:</strong> Macarapana, Sucre.</p>
+            <div style="background: #eee;  display: flex; align-items: center; justify-content: center;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15683.919887179101!2d-63.22149045532024!3d10.65866226932796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c33dd5b9044e0f9%3A0xc9ffcdc3adf9fc21!2sMacarapana%206150%2C%20Sucre!5e0!3m2!1ses!2sve!4v1771021058813!5m2!1ses!2sve" style="border:0; width: 100%; height: 100%;" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <a href="#inicio" class="back-btn">← Volver al Inicio</a>
+    </section>
+
+    <section id="nomina">
+        <h2>Nómina de Dani's STORE</h2>
+        <div class="content-card">
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cargo</th>
+                    <th>Sueldo Base</th>
+                    <th>Bonificaciones</th>
+                </tr>
+                <tr>
+                    <td>Daniela Marcano</td>
+                    <td>Dueña / Directora</td>
+                    <td>-</td>
+                    <td>Gestión General</td>
+                </tr>
+                <tr>
+                    <td>Freddy Osuna</td>
+                    <td>Empleado</td>
+                    <td>70$ Quincenal</td>
+                    <td>10% Comisión x Venta</td>
+                </tr>
+                <tr>
+                    <td>Julbelkis Maestres</td>
+                    <td>Asesora de Venta</td>
+                    <td>70$ Quincenal</td>
+                    <td>10% Comisión x Venta</td>
+                </tr>
+            </table>
+        </div>
+        <a href="#inicio" class="back-btn">← Volver al Inicio</a>
+    </section>
+
+    <section id="productos">
+        
+        <h2>Nuestra Colección</h2>
+    <div class="content-card">
+        <p style="background: #fff0f5; padding: 15px; border-radius: 8px; border-left: 5px solid var(--primary-pink); font-weight: bold; color: #d81b60;">
+            ⚠️ NOTA: La disponibilidad y precios de los productos se deben consultar directamente vía WhatsApp.
+        </p>
+
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="WhatsApp Image 2026-02-09 at 9.47.08 PM.jpeg" alt="Franelas de Cerezas">
+                <p>Franelas Estampadas Cerezas</p>
+            </div>
+            <div class="product-item">
+                <img src="WhatsApp Image 2026-02-09 at 9.47.07 PM (1).jpeg" alt="Franelas Good Vibes">
+                <p>Franelas "Good Vibes Only"</p>
+            </div>
+            <div class="product-item">
+                <img src="WhatsApp Image 2026-02-09 at 9.47.09 PM (2).jpeg" alt="Franela Oversize Blanca">
+                <p>Franela Oversize Básica</p>
+            </div>
+            
+            <div class="product-item">
+                <img src="WhatsApp Image 2026-02-09 at 9.47.08 PM (2).jpeg" alt="Bolso Coach Cerezas">
+                <p>Bolso Estampado Cerezas (Blanco)</p>
+            </div>
+            <div class="product-item">
+                <img src="WhatsApp Image 2026-02-09 at 9.47.09 PM.jpeg" alt="Bolso Coach Negro">
+                <p>Bolso Estampado Cerezas (Negro)</p>
+            </div>
+            
+            <div class="product-item">
+                <img src="WhatsApp Image 2026-02-09 at 9.47.07 PM.jpeg" alt="Franelas Variadas">
+                <p>Diseños Animados (Tom & Jerry)</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="https://wa.me/584121222680" class="btn" style="background: #25d366; color: white; border: none; padding: 15px 30px;">
+                💬 Consultar Disponibilidad por WhatsApp
+            </a>
+        </div>
+    </div>
+        
+        <a href="#inicio" class="back-btn">← Volver</a>
+    </section>
+    <section id="servicios">
+        
+        <h2>Nuestros Servicios</h2>
+    <div class="content-card">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            
+            <div style="border: 1px solid #ffe1ed; padding: 20px; border-radius: 15px; text-align: center;">
+                <span style="font-size: 40px;">👗</span>
+                <h3 style="color: var(--primary-pink);">Venta de Moda</h3>
+                <p>Variedad exclusiva en franelas estampadas y bolsos de alta calidad para damas y caballeros.</p>
+            </div>
+
+            <div style="border: 1px solid #ffe1ed; padding: 20px; border-radius: 15px; text-align: center;">
+                <span style="font-size: 40px;">✨</span>
+                <h3 style="color: var(--primary-pink);">Personal Shopper</h3>
+                <p>Te asesoramos en tu compra para que elijas el diseño y la talla ideal según tu estilo único.</p>
+            </div>
+
+            <div style="border: 1px solid #ffe1ed; padding: 20px; border-radius: 15px; text-align: center;">
+                <span style="font-size: 40px;">📲</span>
+                <h3 style="color: var(--primary-pink);">Atención Digital</h3>
+                <p>Consultas rápidas de disponibilidad y precios directamente por nuestro canal de WhatsApp.</p>
+            </div>
+
+            <div style="border: 1px solid #ffe1ed; padding: 20px; border-radius: 15px; text-align: center;">
+                <span style="font-size: 40px;">📍</span>
+                <h3 style="color: var(--primary-pink);">Entregas Locales</h3>
+                <p>Servicio de entrega y retiros cómodos en la zona de Macarapana para tu mayor facilidad.</p>
+            </div>
+
+        </div>
+    </div>
+        <a href="#inicio" class="back-btn">← Volver</a>
+    </section>
+    <section id="procesos">
+
+    <h2>Actividades y Procesos</h2>
+        <div class="content-card">
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 250px;">
+                <h3 style="color: var(--primary-pink);">🛍️ Ciclo de Venta</h3>
+                <ol>
+                    <li><strong>Recepción:</strong> Atención inicial por Instagram o WhatsApp.</li>
+                    <li><strong>Asesoría:</strong> Sugerencia de productos según la necesidad del cliente.</li>
+                    <li><strong>Verificación:</strong> Consulta de existencia en el almacén de Macarapana.</li>
+                    <li><strong>Pago y Entrega:</strong> Finalización de la transacción y entrega del producto.</li>
+                </ol>
+            </div>
+            <div style="flex: 1; min-width: 250px;">
+                <h3 style="color: var(--primary-pink);">⚙️ Operaciones Internas</h3>
+                <ul>
+                    <li>Actualización constante del catálogo digital.</li>
+                    <li>Cálculo de comisiones por ventas realizadas (10% por empleado).</li>
+                    <li>Control de calidad de los estampados y costuras.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        
+        <a href="#inicio" class="back-btn">← Volver</a>
+    </section>
+    <section id="organigrama">
+        
+        <h2>Organigrama de la Empresa</h2>
+    <div class="content-card">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 30px; padding: 20px;">
+            
+            <div style="text-align: center;">
+                <div style="background: var(--primary-pink); color: white; padding: 15px 30px; border-radius: 10px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    Daniela Marcano<br>
+                    <span style="font-weight: normal; font-size: 0.8em;">Dueña / Gerente General</span>
+                </div>
+            </div>
+
+            <div style="width: 2px; height: 30px; background: #ffe1ed;"></div>
+
+            <div style="display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;">
+                
+                <div style="text-align: center;">
+                    <div style="border: 2px solid var(--primary-pink); color: var(--primary-pink); padding: 12px 20px; border-radius: 10px; font-weight: bold; background: white;">
+                        Freddy Osuna<br>
+                        <span style="font-weight: normal; font-size: 0.8em; color: #666;">Empleado de Ventas</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="border: 2px solid var(--primary-pink); color: var(--primary-pink); padding: 12px 20px; border-radius: 10px; font-weight: bold; background: white;">
+                        Julbelkis Maestres<br>
+                        <span style="font-weight: normal; font-size: 0.8em; color: #666;">Asesora de Ventas</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <p style="text-align: center; font-size: 0.85em; color: #888; margin-top: 20px;">
+            Estructura organizacional enfocada en la atención directa al cliente en Macarapana.
+        </p>
+    </div>
+    
+        <a href="#inicio" class="back-btn">← Volver</a></section>
+
+    <footer>
+        &copy; 2026 Dani's STORE - Macarapana.
+    </footer>
+</div>
+
+</body>
+</html>
